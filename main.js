@@ -21,18 +21,12 @@ function updateColorBoxes() {
   });
 }
 
-function setBoxHex(index, color) {
-  if (!isHexCode(color)) return;
+function setBoxHex(index, colorObject) {
   if (index >= allColorContainers.length) return;
 
   var colorHex = allColorContainers[index].querySelector(".color-hex");
-  colorHex.innerText = color;
+  colorHex.innerText = colorObject.hexCode;
   updateColorBoxes();
-}
-
-function isHexCode(string) {
-  const hexCodeRegex = new RegExp("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$");
-  return hexCodeRegex.test(string);
 }
 
 function randomHexGenerator() {
@@ -47,13 +41,9 @@ function randomHexGenerator() {
 
 function createColorBoxes() {
   for (var i = 0; i < allColorContainers.length; i++) {
-    setBoxHex(i, randomHexGenerator());
+    setBoxHex(i, new Color(randomHexGenerator()));
   }
 }
-
-// FOR NOW
-// all the inputs get set 
-
 
 
 // FOR LATER
