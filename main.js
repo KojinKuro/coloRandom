@@ -1,4 +1,10 @@
 var allColorContainers = document.querySelectorAll(".color-container");
+var randomButton = document.querySelector(".random-button");
+
+randomButton.addEventListener('click', function(event){
+  createColorBoxes();
+  updateColorBoxes();
+});
 
 updateColorBoxes();
 
@@ -26,20 +32,19 @@ function isHexCode(string) {
   return hexCodeRegex.test(string);
 }
 
-/* - add a button that generates 5 hex codes
-grab 6 characters from a string that contains valid hexcode integers
-  done in a for loop that loops 6 times each time adding a new character to the string
-  return hexcode*/
 
 function randomHexGenerator() {
-  let possibleInt = '0123456789abcdef'
-  let hexCode = '#'
+  const possibleInt = '0123456789abcdef';
+  let hexCode = '#';
   for (let index = 0; index < 6; index++) {
-    randInt = Math.floor(Math.random() * 16)
-    hexCode += possibleInt[randInt]
+    randInt = Math.floor(Math.random() * possibleInt.length);
+    hexCode += possibleInt[randInt];
   }
-  return hexCode
-};
+  return hexCode;
+}
 
-/* function that  calls hexcode generator and set hexbox 5 times*/
-/* event that calls that function when a button is clicked */
+function createColorBoxes() {
+  for (var i = 0; i < allColorContainers.length; i++) {
+    setBoxHex(i, randomHexGenerator());
+  }
+}
