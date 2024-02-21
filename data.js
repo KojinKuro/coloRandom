@@ -1,6 +1,7 @@
-function Color(hexcode = '#FFFFFF',isLocked = false) {
+export function Color(hexcode = '#FFFFFF',isLocked = false) {
   this.hexcode = hexcode;
   this.isLocked = isLocked;
 };
 
-let paletteArray = [];
+export let currentPalette = [];
+export let paletteArray = [];

@@ -1,3 +1,5 @@
+import { currentPalette, paletteArray, Color } from "/data.js";
+
 var allColorContainers = document.querySelectorAll(".color-container");
 var randomButton = document.querySelector(".random-button");
 
@@ -9,11 +11,12 @@ randomButton.addEventListener('click', function(event){
 updateColorBoxes();
 
 function updateColorBoxes() {
+  while(currentPalette.length) currentPalette.pop();
   allColorContainers.forEach((container) => {
     const colorBox = container.querySelector(".color-box");
     const colorHex = container.querySelector(".color-hex");
     const hexCode = colorHex.innerText;
-
+    currentPalette.push(new Color(hexCode))
     colorBox.style.backgroundColor = hexCode;
   });
 }
@@ -36,7 +39,7 @@ function randomHexGenerator() {
   const possibleInt = '0123456789abcdef';
   let hexCode = '#';
   for (let index = 0; index < 6; index++) {
-    randInt = Math.floor(Math.random() * possibleInt.length);
+    let randInt = Math.floor(Math.random() * possibleInt.length);
     hexCode += possibleInt[randInt];
   }
   return hexCode;
@@ -48,6 +51,12 @@ function createColorBoxes() {
   }
 }
 
+// FOR NOW
+// all the inputs get set 
+
+
+
+// FOR LATER
 // eventListener for locks
 // function need to change src of lock image on click 
 // checks locked status of all palettes
