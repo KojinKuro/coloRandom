@@ -10,6 +10,8 @@
   --button-height: 50px;
   --button-width: 250px;
   --button-font-size: 1.5rem;
+
+  --lock-img-size: 20%;
 }
 
 html, body {
@@ -50,8 +52,13 @@ main {
   }
   
   .color-box {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
     width: var(--box-size);
     height: var(--box-size);
+    padding: 10px;
   
     background-color: #FFFFFF;
     border: var(--box-border);
@@ -60,6 +67,11 @@ main {
   .color-hex {
     font-size: var(--hex-size);
     text-transform: uppercase;
+  }
+
+  img {
+    width: var(--lock-img-size);
+    height: var(--lock-img-size);
   }
 }
 

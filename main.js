@@ -32,7 +32,6 @@ function isHexCode(string) {
   return hexCodeRegex.test(string);
 }
 
-
 function randomHexGenerator() {
   const possibleInt = '0123456789abcdef';
   let hexCode = '#';
@@ -48,3 +47,9 @@ function createColorBoxes() {
     setBoxHex(i, randomHexGenerator());
   }
 }
+
+// eventListener for locks
+// function need to change src of lock image on click 
+// checks locked status of all palettes
+// if isLocked is checked, keep color and hex, rest randomize
+// need to update palette 
