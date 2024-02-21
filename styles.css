@@ -6,6 +6,10 @@
 
   --box-size: 175px;
   --box-border: 5px solid black;
+
+  --button-height: 50px;
+  --button-width: 250px;
+  --button-font-size: 1.5rem;
 }
 
 html, body {
@@ -25,9 +29,8 @@ body {
 }
 
 .title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  align-self: center;
+  justify-self: center;
 
   font-size: var(--title-size);
   text-transform: uppercase;
@@ -58,4 +61,21 @@ main {
     font-size: var(--hex-size);
     text-transform: uppercase;
   }
+}
+
+.random-button {
+  align-self: center;
+  justify-self: center;
+
+  height: var(--button-height);
+  width: var(--button-width);
+
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--button-font-size);  
+  color: white;
+  
+  background-color: black;
+  border: none;
+  border-top-right-radius: var(--button-height);
+  border-bottom-left-radius: var(--button-height);
 }
