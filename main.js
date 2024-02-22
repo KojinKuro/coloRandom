@@ -8,6 +8,7 @@ var saveButton = document.querySelector(".save-button");
 saveButton.addEventListener('click', function() {
   savePalette();
   updateSavedPalettes();
+  createColorBoxes();
 })
 allImages.forEach((image, index) => {
   image.addEventListener('click', () => {
@@ -17,7 +18,6 @@ allImages.forEach((image, index) => {
 })
 randomButton.addEventListener('click', function(event){
   createColorBoxes(); 
-  updateColorBoxes();
 });
 
 init();
@@ -59,15 +59,6 @@ function createColorBoxes() {
   }
 }
 
-// 1. save the current palette
-    // 1. save currentPalette 
-    // get the Save Button dom element. (document.querySelector('.save-button'))
-    // 2. addEventHandler to the save button activating it on click to run savePalette()
-    /* make a function called savePalette()
-      put currentPalette into paletteArray with what method .push()
-      run upSavePalettes() everytime you save
-    */
-
 function savePalette() {
   paletteArray.push(structuredClone(currentPalette));
 }
@@ -92,27 +83,3 @@ function updateSavedPalettes() {
     updatedPalettes.appendChild(newPalette);
   }
 }
-
-// Shoot it to the DOM
-    // create function updateSavePalettes()
-  /*
-    for every single element in the palette Array. 
-    display them to the DOM
-
-    for loop that runs through each paletteArray[]
-
-    // CREATE THIS HTML ELEMENT as an <li></li> before appendChild is run
-    // class of mini-color-container
-    // 5 boxes 
-/*
-      <li class="mini-color-container">
-        <div class="mini-color-box"></div>
-        <div class="mini-color-box"></div>
-        <div class="mini-color-box"></div>
-        <div class="mini-color-box"></div>
-        <div class="mini-color-box"></div>
-      </li>
-
-*/
-    // - will hold just colors
-    // every single one of these will have thier backhgroundColor set to w.e hexcode

@@ -8,8 +8,8 @@
   --box-size: 150px; 
   --box-border: 5px solid black;
 
-  --mini-box-size: 10px;
-  --mini-box-border: 2px solid black;
+  --mini-box-size: 30px;
+  --mini-box-border: 4px solid black;
 
   --button-height: 50px;
   --button-width: 250px;
@@ -53,14 +53,23 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 
+    margin: 0;
+    padding: 0;
+    
+    li {
+      list-style-type: none;
+      font-size: var(--other-font-size);
+      margin-bottom: 30px;
+    }
+    
     .mini-color-container {
-      gap: 5px;
+      width: 90%;
+
       display: flex;
       flex-direction: row;
-
-      align-items: flex-end;
-      justify-content: flex-end;
+      justify-content: space-evenly;
     }
     
     .mini-color-box {
@@ -70,7 +79,6 @@ body {
     
       background-color: #FFFFFF;
       border: var(--mini-box-border);
-      
     }
 
   }
