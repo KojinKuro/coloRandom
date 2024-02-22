@@ -1,50 +1,63 @@
+import { currentPalette, paletteArray, Color } from "/data.js";
+
+var allImages = document.querySelectorAll('img');
 var allColorContainers = document.querySelectorAll(".color-container");
 var randomButton = document.querySelector(".random-button");
 
+allImages.forEach((image, index) => {
+  image.addEventListener('click', () => {
+    currentPalette[index].toggleLock();
+    updateColorBoxes();
+  });
+})
 randomButton.addEventListener('click', function(event){
   createColorBoxes();
   updateColorBoxes();
 });
 
-updateColorBoxes();
+init();
 
-function updateColorBoxes() {
-  allColorContainers.forEach((container) => {
-    const colorBox = container.querySelector(".color-box");
-    const colorHex = container.querySelector(".color-hex");
-    const hexCode = colorHex.innerText;
-
-    colorBox.style.backgroundColor = hexCode;
-  });
-}
-
-function setBoxHex(index, color) {
-  if (!isHexCode(color)) return;
-  if (index >= allColorContainers.length) return;
-
-  var colorHex = allColorContainers[index].querySelector(".color-hex");
-  colorHex.innerText = color;
+function init() {
   updateColorBoxes();
 }
 
-function isHexCode(string) {
-  const hexCodeRegex = new RegExp("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$");
-  return hexCodeRegex.test(string);
+function updateColorBoxes() {
+  allColorContainers.forEach((container, index) => {
+    const colorBox = container.querySelector(".color-box");
+    const colorHex = container.querySelector(".color-hex");
+    const colorLock = container.querySelector("img");
+    const hexCode = currentPalette[index].hexCode;
+
+    if(currentPalette[index].isLocked) {
+      colorLock.src = './assests/locked.png';
+    } else {
+      colorLock.src = './assests/unlocked.png';
+    }
+
+    colorBox.style.backgroundColor = hexCode;
+    colorHex.innerText = hexCode;
+  });
 }
 
+function setBoxHex(index, colorObject) {
+  if (index >= allColorContainers.length) return;
+  if (currentPalette[index].isLocked) return;
 
-function randomHexGenerator() {
-  const possibleInt = '0123456789abcdef';
-  let hexCode = '#';
-  for (let index = 0; index < 6; index++) {
-    randInt = Math.floor(Math.random() * possibleInt.length);
-    hexCode += possibleInt[randInt];
-  }
-  return hexCode;
+  var colorHex = allColorContainers[index].querySelector(".color-hex");
+  currentPalette[index] = colorObject;
+  updateColorBoxes();
 }
 
 function createColorBoxes() {
   for (var i = 0; i < allColorContainers.length; i++) {
-    setBoxHex(i, randomHexGenerator());
+    setBoxHex(i, new Color());
   }
 }
+
+
+// FOR LATER
+// eventListener for locks
+// function need to change src of lock image on click 
+// checks locked status of all palettes
+// if isLocked is checked, keep color and hex, rest randomize
+// need to update palette 
