@@ -3,6 +3,7 @@ import { currentPalette, paletteArray, Color } from "/data.js";
 var allImages = document.querySelectorAll('img');
 var allColorContainers = document.querySelectorAll(".color-container");
 var randomButton = document.querySelector(".random-button");
+var saveButton = document.querySelector(".save-button");
 
 allImages.forEach((image, index) => {
   image.addEventListener('click', () => {
@@ -54,10 +55,35 @@ function createColorBoxes() {
   }
 }
 
+// function savePalette() {
+//   const paletteToSave = document.querySelector(".save-buttons");
+//   paletteToSave.innerText = '';
+//   for (var i = 0; i < currentPalette.length; i++) {
+//     const paletteListItem = document.createElement("li");
+//   }
+// }
 
-// FOR LATER
-// eventListener for locks
-// function need to change src of lock image on click 
-// checks locked status of all palettes
-// if isLocked is checked, keep color and hex, rest randomize
-// need to update palette 
+
+// 1. save the current palette
+    // 1. save currentPalette 
+    // get the Save Button dom element. (document.querySelector('.save-button'))
+    // 2. addEventHandler to the save button activating it on click to run savePalette()
+    /* make a function called savePalette()
+      put currentPalette into paletteArray with what method .push()
+      run upSavePalettes() everytime you save
+    */
+
+// Shoot it to the DOM
+    // create function updateSavePalettes()
+  /*
+    for every single element in the palette Array. 
+    display them to the DOM
+
+    for loop that runs through each paletteArray[]
+
+    // CREATE THIS HTML ELEMENT as an <li></li> before appendChild is run
+    // class of mini-color-container
+    // 5 boxes 
+    // - will hold just colors
+    // every single one of these will have thier backhgroundColor set to w.e hexcode
+  */

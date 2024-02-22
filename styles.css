@@ -2,9 +2,10 @@
   --color-background: #e5f1f1;
 
   --title-size: 5rem;
-  --hex-size: 1.5rem;
+  --other-font-size: 1.5rem;
+  --main-margin: 3ch;
 
-  --box-size: 175px;
+  --box-size: 150px;
   --box-border: 5px solid black;
 
   --button-height: 50px;
@@ -12,6 +13,9 @@
   --button-font-size: 1.5rem;
 
   --lock-img-size: 20%;
+
+ 
+  --saved-title-size: 2rem;
 }
 
 html, body {
@@ -20,74 +24,94 @@ html, body {
   padding: 0;
 
   font-family: 'Poppins', sans-serif;
-}
-
-body {
-  display: grid;
-  grid-template-rows: repeat(3,1fr);
-  justify-content: center;
-  
   background-color: var(--color-background);
 }
 
-.title {
-  align-self: center;
-  justify-self: center;
 
-  font-size: var(--title-size);
-  text-transform: uppercase;
+body {
+  display: flex;
+  flex-direction: row;
 }
 
-main {
+.saved-view {
   display: flex;
-  justify-self: center;
+  flex-direction: column;
   align-items: center;
-  gap: 15px;
+  border-left: 5px solid #000;
+  width: 100%;
+
+  h3 {
+    width: auto;
+    font-size: var(--saved-title-size);
+  }
+}
+
+.main-view {
+  
+  
+  .title {
+    text-align: center;
+    justify-self: center;
+  
+    font-size: var(--title-size);
+    text-transform: uppercase;
+  }
+  
+  main {
+    margin: var(--main-margin);
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    gap: 15px;
+  }
 
   .color-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+
+    .color-box {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+
+      width: var(--box-size);
+      height: var(--box-size);
+      padding: 10px;
+    
+      background-color: #FFFFFF;
+      border: var(--box-border);
+    }
+    
+    .color-hex {
+      font-size: var(--other-font-size);
+      text-transform: uppercase;
+    }
+
+    img {
+      width: var(--lock-img-size);
+      height: var(--lock-img-size);
+    }
   }
   
-  .color-box {
+  .buttons-container {
+    width: auto;
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-
-    width: var(--box-size);
-    height: var(--box-size);
-    padding: 10px;
+    justify-content: space-evenly;
   
-    background-color: #FFFFFF;
-    border: var(--box-border);
+    button {
+      height: var(--button-height);
+      width: var(--button-width);
+    
+      font-family: 'Poppins', sans-serif;
+      font-size: var(--button-font-size);  
+      color: white;
+      
+      background-color: black;
+      border: none;
+      border-top-right-radius: var(--button-height);
+      border-bottom-left-radius: var(--button-height);
+    }
   }
-  
-  .color-hex {
-    font-size: var(--hex-size);
-    text-transform: uppercase;
-  }
-
-  img {
-    width: var(--lock-img-size);
-    height: var(--lock-img-size);
-  }
-}
-
-.random-button {
-  align-self: center;
-  justify-self: center;
-
-  height: var(--button-height);
-  width: var(--button-width);
-
-  font-family: 'Poppins', sans-serif;
-  font-size: var(--button-font-size);  
-  color: white;
-  
-  background-color: black;
-  border: none;
-  border-top-right-radius: var(--button-height);
-  border-bottom-left-radius: var(--button-height);
 }
