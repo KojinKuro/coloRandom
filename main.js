@@ -1,47 +1,56 @@
 import { currentPalette, paletteArray, Color } from "/data.js";
 
+var allImages = document.querySelectorAll('img');
 var allColorContainers = document.querySelectorAll(".color-container");
 var randomButton = document.querySelector(".random-button");
 
+allImages.forEach((image, index) => {
+  image.addEventListener('click', () => {
+    currentPalette[index].toggleLock();
+    updateColorBoxes();
+  });
+})
 randomButton.addEventListener('click', function(event){
   createColorBoxes();
   updateColorBoxes();
 });
 
-updateColorBoxes();
+init();
+
+function init() {
+  updateColorBoxes();
+}
 
 function updateColorBoxes() {
-  while(currentPalette.length) currentPalette.pop();
-  allColorContainers.forEach((container) => {
+  allColorContainers.forEach((container, index) => {
     const colorBox = container.querySelector(".color-box");
     const colorHex = container.querySelector(".color-hex");
-    const hexCode = colorHex.innerText;
-    currentPalette.push(new Color(hexCode))
+    const colorLock = container.querySelector("img");
+    const hexCode = currentPalette[index].hexCode;
+
+    if(currentPalette[index].isLocked) {
+      colorLock.src = './assests/locked.png';
+    } else {
+      colorLock.src = './assests/unlocked.png';
+    }
+
     colorBox.style.backgroundColor = hexCode;
+    colorHex.innerText = hexCode;
   });
 }
 
 function setBoxHex(index, colorObject) {
   if (index >= allColorContainers.length) return;
+  if (currentPalette[index].isLocked) return;
 
   var colorHex = allColorContainers[index].querySelector(".color-hex");
-  colorHex.innerText = colorObject.hexCode;
+  currentPalette[index] = colorObject;
   updateColorBoxes();
-}
-
-function randomHexGenerator() {
-  const possibleInt = '0123456789abcdef';
-  let hexCode = '#';
-  for (let index = 0; index < 6; index++) {
-    let randInt = Math.floor(Math.random() * possibleInt.length);
-    hexCode += possibleInt[randInt];
-  }
-  return hexCode;
 }
 
 function createColorBoxes() {
   for (var i = 0; i < allColorContainers.length; i++) {
-    setBoxHex(i, new Color(randomHexGenerator()));
+    setBoxHex(i, new Color());
   }
 }
 
