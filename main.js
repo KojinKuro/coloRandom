@@ -3,7 +3,13 @@ import { currentPalette, paletteArray, Color } from "/data.js";
 var allImages = document.querySelectorAll('img');
 var allColorContainers = document.querySelectorAll(".color-container");
 var randomButton = document.querySelector(".random-button");
+var saveButton = document.querySelector(".save-button");
 
+saveButton.addEventListener('click', function() {
+  savePalette();
+  updateSavedPalettes();
+  createColorBoxes();
+})
 allImages.forEach((image, index) => {
   image.addEventListener('click', () => {
     currentPalette[index].toggleLock();
@@ -11,8 +17,7 @@ allImages.forEach((image, index) => {
   });
 })
 randomButton.addEventListener('click', function(event){
-  createColorBoxes();
-  updateColorBoxes();
+  createColorBoxes(); 
 });
 
 init();
@@ -54,10 +59,27 @@ function createColorBoxes() {
   }
 }
 
+function savePalette() {
+  paletteArray.push(structuredClone(currentPalette));
+}
 
-// FOR LATER
-// eventListener for locks
-// function need to change src of lock image on click 
-// checks locked status of all palettes
-// if isLocked is checked, keep color and hex, rest randomize
-// need to update palette 
+function updateSavedPalettes() {
+  var updatedPalettes = document.querySelector(".saved-palettes");
+  updatedPalettes.innerHTML = "";
+  
+  for (var i = 0; i < paletteArray.length; i++) {
+    const newPalette = document.createElement("li");
+    newPalette.classList.add("mini-color-container");
+
+    for(let j = 0; j < paletteArray[i].length; ++j) {
+      var currentColor = paletteArray[i][j];
+      const miniColorBox = document.createElement("div");
+      
+      miniColorBox.classList.add("mini-color-box");
+      miniColorBox.style.backgroundColor = currentColor.hexCode;
+      
+      newPalette.appendChild(miniColorBox);
+    }
+    updatedPalettes.appendChild(newPalette);
+  }
+}

@@ -16,39 +16,57 @@
   <script defer type="module" src="main.js"></script>
 </head>
 <body>
-  <h1 class="title">Colorandom</h1>
-  <main>
-    <section class="color-container">
-      <div class="color-box">
-        <img src="./assests/unlocked.png" alt="Unlocked icon">
-      </div>
-      <div class="color-hex">#EA9999</div>
-    </section>
-    <section class="color-container">
-      <div class="color-box">
-        <img src="./assests/unlocked.png" alt="Unlocked icon">
-      </div>
-      <div class="color-hex">#FACB9C</div>
-    </section>
-    <section class="color-container">
-      <div class="color-box">
-        <img src="./assests/unlocked.png" alt="Unlocked icon">
-      </div>
-      <div class="color-hex">#FFE59A</div>
-    </section>
-    <section class="color-container">
-      <div class="color-box">
-        <img src="./assests/unlocked.png" alt="Unlocked icon">
-      </div>
-      <div class="color-hex">#B5D7A8</div>
-    </section>
-    <section class="color-container">
-      <div class="color-box">
-        <img src="./assests/unlocked.png" alt="Unlocked icon">
-      </div>
-      <div class="color-hex">#A4C4CA</div>
-    </section>
-  </main>
-  <button class="random-button">New Palette</button>
+  <div class="view main-view">
+    <h1 class="title">Colorandom</h1>
+    <main>
+      <section class="color-container">
+        <div class="color-box">
+          <img src="./assests/unlocked.png" alt="Unlocked icon">
+        </div>
+        <div class="color-hex">#EA9999</div>
+      </section>
+      <section class="color-container">
+        <div class="color-box">
+          <img src="./assests/unlocked.png" alt="Unlocked icon">
+        </div>
+        <div class="color-hex">#FACB9C</div>
+      </section>
+      <section class="color-container">
+        <div class="color-box">
+          <img src="./assests/unlocked.png" alt="Unlocked icon">
+        </div>
+        <div class="color-hex">#FFE59A</div>
+      </section>
+      <section class="color-container">
+        <div class="color-box">
+          <img src="./assests/unlocked.png" alt="Unlocked icon">
+        </div>
+        <div class="color-hex">#B5D7A8</div>
+      </section>
+      <section class="color-container">
+        <div class="color-box">
+          <img src="./assests/unlocked.png" alt="Unlocked icon">
+        </div>
+        <div class="color-hex">#A4C4CA</div>
+      </section>
+    </main>
+    <div class="buttons-container">
+      <button class="random-button">New Palette</button>
+      <button class="save-button">Save Palette</button>
+    </div>
+  </div>
+  <div class="view saved-view">
+    <h3>Saved Palettes</h3>
+    <ul class="saved-palettes">
+      <li>No saved palettes yet!</li>
+      <!-- <li class="mini-color-container">
+        <div class="mini-color-box"></div>
+        <div class="mini-color-box"></div>
+        <div class="mini-color-box"></div>
+        <div class="mini-color-box"></div>
+        <div class="mini-color-box"></div>
+      </li> -->
+    </ul>
+  </div>
 </body>
 </html>
