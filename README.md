@@ -26,7 +26,13 @@ We are currently in Week 4 of Mod 1 Front-End Engineering. This is our second gr
 
 ## 🚀 Future Roadmap
 
-- TBD
+- Allowing sending saved palettes to the main page for editing.
+- Ensure that all saved palettes are unique.
+- Create a delete confirmation page.
+- Implement localStorage so the saved palettes persist on page load.
+- Allow users to name their palettes when saving, and allow them to search their saved palettes by name.
+- Create a way for users to adjust a color.
+- Generate colors based on actual color palettes instead of being completely random.
 
 ## 👏 Credits
 
