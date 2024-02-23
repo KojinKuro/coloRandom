@@ -1,16 +1,25 @@
 import { Color, currentPalette, paletteArray } from "./data.js";
 
-var allImages = document.querySelectorAll("img");
+var allLockImages = document.querySelectorAll("img.lock");
 var allColorContainers = document.querySelectorAll(".color-container");
 var randomButton = document.querySelector(".random-button");
 var saveButton = document.querySelector(".save-button");
+var savedView = document.querySelector(".saved-view");
+
+savedView.addEventListener("click", function (event) {
+  var element = event.target;
+  if (element.classList.contains("remove-button")) {
+    paletteArray.splice(element.dataset.id, 1);
+    updateSavedPalettes();
+  }
+});
 
 saveButton.addEventListener("click", function () {
   savePalette();
   updateSavedPalettes();
   createColorBoxes();
 });
-allImages.forEach((image, index) => {
+allLockImages.forEach((image, index) => {
   image.addEventListener("click", () => {
     currentPalette[index].toggleLock();
     updateColorBoxes();
@@ -84,8 +93,8 @@ function updateSavedPalettes() {
 
     const removeButton = document.createElement("img");
     removeButton.src = "./assets/delete.png";
-    removeButton.style.width = "20px";
-    removeButton.style.height = "20px";
+    removeButton.classList.add("remove-button");
+    removeButton.dataset.id = i;
     newPalette.appendChild(removeButton);
 
     updatedPalettes.appendChild(newPalette);
