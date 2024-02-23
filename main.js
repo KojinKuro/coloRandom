@@ -71,6 +71,7 @@ function updateSavedPalettes() {
     newPalette.classList.add("mini-color-container");
 
     const divContainer = document.createElement("div");
+    divContainer.classList.add("mini-colors");
     for (let j = 0; j < paletteArray[i].length; ++j) {
       var currentColor = paletteArray[i][j];
       const miniColorBox = document.createElement("div");
