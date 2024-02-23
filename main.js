@@ -34,9 +34,9 @@ function updateColorBoxes() {
     const hexCode = currentPalette[index].hexCode;
 
     if (currentPalette[index].isLocked) {
-      colorLock.src = "./assests/locked.png";
+      colorLock.src = "./assets/locked.png";
     } else {
-      colorLock.src = "./assests/unlocked.png";
+      colorLock.src = "./assets/unlocked.png";
     }
 
     colorBox.style.backgroundColor = hexCode;
@@ -70,11 +70,6 @@ function updateSavedPalettes() {
     const newPalette = document.createElement("li");
     newPalette.classList.add("mini-color-container");
 
-    const removeButton = document.createElement("img");
-    removeButton.src = "./assests/delete.png";
-    removeButton.style.width = "20px";
-    removeButton.style.height = "20px";
-
     const divContainer = document.createElement("div");
     for (let j = 0; j < paletteArray[i].length; ++j) {
       var currentColor = paletteArray[i][j];
@@ -84,9 +79,14 @@ function updateSavedPalettes() {
       miniColorBox.style.backgroundColor = currentColor.hexCode;
       divContainer.appendChild(miniColorBox);
     }
-
     newPalette.appendChild(divContainer);
+
+    const removeButton = document.createElement("img");
+    removeButton.src = "./assets/delete.png";
+    removeButton.style.width = "20px";
+    removeButton.style.height = "20px";
     newPalette.appendChild(removeButton);
+
     updatedPalettes.appendChild(newPalette);
   }
 }
