@@ -5,7 +5,7 @@
   --other-font-size: 1.5rem;
   --main-margin: 3ch;
 
-  --box-size: 150px; 
+  --box-size: 150px;
   --box-border: 5px solid black;
 
   --mini-box-size: 30px;
@@ -17,19 +17,18 @@
 
   --lock-img-size: 20%;
 
- 
   --saved-title-size: 2rem;
 }
 
-html, body {
-  min-height: 100vh;
+html,
+body {
+  height: 100vh;
   margin: 0;
   padding: 0;
 
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: var(--color-background);
 }
-
 
 body {
   display: flex;
@@ -49,21 +48,23 @@ body {
   h3 {
     font-size: var(--saved-title-size);
   }
-  .saved-palettes{
+
+  .saved-palettes {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    overflow: scroll;
 
     margin: 0;
     padding: 0;
-    
+
     li {
       list-style-type: none;
       font-size: var(--other-font-size);
       margin-bottom: 30px;
     }
-    
+
     .mini-color-container {
       width: 90%;
 
@@ -71,33 +72,32 @@ body {
       flex-direction: row;
       justify-content: space-evenly;
     }
-    
+
     .mini-color-box {
       width: var(--mini-box-size);
       height: var(--mini-box-size);
       padding: 10px;
-    
-      background-color: #FFFFFF;
+
+      background-color: #ffffff;
       border: var(--mini-box-border);
     }
-
   }
 }
 
 .main-view {
   flex: 3;
-  
+
   display: grid;
-  grid-template-rows: repeat(3,1fr);
+  grid-template-rows: repeat(3, 1fr);
 
   .title {
     text-align: center;
     justify-self: center;
-  
+
     font-size: var(--title-size);
     text-transform: uppercase;
   }
-  
+
   main {
     display: flex;
     justify-self: center;
@@ -118,11 +118,11 @@ body {
       width: var(--box-size);
       height: var(--box-size);
       padding: 10px;
-    
-      background-color: #FFFFFF;
+
+      background-color: #ffffff;
       border: var(--box-border);
     }
-    
+
     .color-hex {
       font-size: var(--other-font-size);
       text-transform: uppercase;
@@ -133,20 +133,20 @@ body {
       height: var(--lock-img-size);
     }
   }
-  
+
   .buttons-container {
     width: auto;
     display: flex;
     justify-content: space-evenly;
-  
+
     button {
       height: var(--button-height);
       width: var(--button-width);
-    
-      font-family: 'Poppins', sans-serif;
-      font-size: var(--button-font-size);  
+
+      font-family: "Poppins", sans-serif;
+      font-size: var(--button-font-size);
       color: white;
-      
+
       background-color: black;
       border: none;
       border-top-right-radius: var(--button-height);
