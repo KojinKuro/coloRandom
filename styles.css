@@ -71,9 +71,22 @@ body {
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .mini-colors {
+      display: flex;
+      flex-direction: row;
+    }
+
+    img {
+      width: var(--mini-box-size);
+      height: var(--mini-box-size);
     }
 
     .mini-color-box {
+      flex: 1;
+
       width: var(--mini-box-size);
       height: var(--mini-box-size);
       padding: 10px;
