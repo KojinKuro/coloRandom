@@ -27,10 +27,10 @@ export class Color {
 }
 
 export let currentPalette = [
-  new Color("#EA9999"),
-  new Color("#FACB9C"),
-  new Color("#FFE59A"),
-  new Color("#B5D7A8"),
-  new Color("#A4C4CA"),
+  new Color(),
+  new Color(),
+  new Color(),
+  new Color(),
+  new Color(),
 ];
 export let paletteArray = [];
