@@ -1,8 +1,8 @@
 export class Color {
   constructor(hexCode, isLocked = false) {
-    if(this.isHexCode(hexCode)) this.hexCode = hexCode;
+    if (this.isHexCode(hexCode)) this.hexCode = hexCode;
     else this.hexCode = this.randomHexGenerator();
-  
+
     this.isLocked = isLocked;
   }
 
@@ -16,21 +16,21 @@ export class Color {
   }
 
   randomHexGenerator() {
-    const possibleInt = '0123456789abcdef';
-    let hexCode = '#';
+    const possibleInt = "0123456789abcdef";
+    let hexCode = "#";
     for (let index = 0; index < 6; index++) {
       let randInt = Math.floor(Math.random() * possibleInt.length);
       hexCode += possibleInt[randInt];
     }
     return hexCode;
   }
-};
+}
 
 export let currentPalette = [
-  new Color('#EA9999'),
-  new Color('#FACB9C'),
-  new Color('#FFE59A'),
-  new Color('#B5D7A8'),
-  new Color('#A4C4CA'),
+  new Color(),
+  new Color(),
+  new Color(),
+  new Color(),
+  new Color(),
 ];
 export let paletteArray = [];

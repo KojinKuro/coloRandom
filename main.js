@@ -1,16 +1,25 @@
 import { Color, currentPalette, paletteArray } from "./data.js";
 
-var allImages = document.querySelectorAll("img");
+var allLockImages = document.querySelectorAll("img.lock");
 var allColorContainers = document.querySelectorAll(".color-container");
 var randomButton = document.querySelector(".random-button");
 var saveButton = document.querySelector(".save-button");
+var savedView = document.querySelector(".saved-view");
+
+savedView.addEventListener("click", function (event) {
+  var element = event.target;
+  if (element.classList.contains("remove-button")) {
+    paletteArray.splice(element.dataset.id, 1);
+    updateSavedPalettes();
+  }
+});
 
 saveButton.addEventListener("click", function () {
   savePalette();
   updateSavedPalettes();
   createColorBoxes();
 });
-allImages.forEach((image, index) => {
+allLockImages.forEach((image, index) => {
   image.addEventListener("click", () => {
     currentPalette[index].toggleLock();
     updateColorBoxes();
@@ -34,9 +43,9 @@ function updateColorBoxes() {
     const hexCode = currentPalette[index].hexCode;
 
     if (currentPalette[index].isLocked) {
-      colorLock.src = "./assests/locked.png";
+      colorLock.src = "./assets/locked.png";
     } else {
-      colorLock.src = "./assests/unlocked.png";
+      colorLock.src = "./assets/unlocked.png";
     }
 
     colorBox.style.backgroundColor = hexCode;
@@ -70,12 +79,8 @@ function updateSavedPalettes() {
     const newPalette = document.createElement("li");
     newPalette.classList.add("mini-color-container");
 
-    const removeButton = document.createElement("img");
-    removeButton.src = "./assests/delete.png";
-    removeButton.style.width = "20px";
-    removeButton.style.height = "20px";
-
     const divContainer = document.createElement("div");
+    divContainer.classList.add("mini-colors");
     for (let j = 0; j < paletteArray[i].length; ++j) {
       var currentColor = paletteArray[i][j];
       const miniColorBox = document.createElement("div");
@@ -84,9 +89,14 @@ function updateSavedPalettes() {
       miniColorBox.style.backgroundColor = currentColor.hexCode;
       divContainer.appendChild(miniColorBox);
     }
-
     newPalette.appendChild(divContainer);
+
+    const removeButton = document.createElement("img");
+    removeButton.src = "./assets/delete.png";
+    removeButton.classList.add("remove-button");
+    removeButton.dataset.id = i;
     newPalette.appendChild(removeButton);
+
     updatedPalettes.appendChild(newPalette);
   }
 }
