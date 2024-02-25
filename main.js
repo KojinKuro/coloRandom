@@ -14,11 +14,21 @@ savedView.addEventListener("click", function (event) {
   }
 });
 
+savedView.addEventListener("click", function (event) {
+  var element = event.target;
+  if (element.classList.contains("mini-colors")||element.classList.contains("mini-color-box")) {
+    let colorObject = paletteArray[element.parentNode.dataset.miniColorId];
+    console.log(colorObject)
+    fromSavedPalette(colorObject)
+  }
+});
+
 saveButton.addEventListener("click", function () {
   savePalette();
   updateSavedPalettes();
   createColorBoxes();
 });
+
 allLockImages.forEach((image, index) => {
   image.addEventListener("click", () => {
     currentPalette[index].toggleLock();
@@ -68,6 +78,14 @@ function createColorBoxes() {
   }
 }
 
+function fromSavedPalette(colorObject){
+  for (let i = 0; i < colorObject.length; i++) {
+    setBoxHex(i, colorObject[i]);
+    
+  }
+  updateColorBoxes()
+}
+
 function savePalette() {
   paletteArray.push(structuredClone(currentPalette));
 }
@@ -77,10 +95,12 @@ function updateSavedPalettes() {
   updatedPalettes.innerHTML = "";
   for (var i = 0; i < paletteArray.length; i++) {
     const newPalette = document.createElement("li");
+    newPalette.dataset.miniColorId = i;
     newPalette.classList.add("mini-color-container");
 
     const divContainer = document.createElement("div");
     divContainer.classList.add("mini-colors");
+    divContainer.dataset.miniColorId = i;
     for (let j = 0; j < paletteArray[i].length; ++j) {
       var currentColor = paletteArray[i][j];
       const miniColorBox = document.createElement("div");
