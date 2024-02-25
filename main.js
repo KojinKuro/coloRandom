@@ -66,8 +66,6 @@ function updateColorBoxes() {
 function setBoxHex(index, colorObject) {
   if (index >= allColorContainers.length) return;
   if (currentPalette[index].isLocked) return;
-
-  var colorHex = allColorContainers[index].querySelector(".color-hex");
   currentPalette[index] = colorObject;
   updateColorBoxes();
 }
