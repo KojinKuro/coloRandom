@@ -6,6 +6,14 @@ export class Color {
     this.isLocked = isLocked;
   }
 
+  lock() {
+    this.isLocked = true;
+  }
+
+  unlock() {
+    this.isLocked = false;
+  }
+
   toggleLock() {
     this.isLocked = !this.isLocked;
   }
