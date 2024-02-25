@@ -16,10 +16,12 @@ savedView.addEventListener("click", function (event) {
 
 savedView.addEventListener("click", function (event) {
   var element = event.target;
-  if (element.classList.contains("mini-colors")||element.classList.contains("mini-color-box")) {
+  if (
+    element.classList.contains("mini-colors") ||
+    element.classList.contains("mini-color-box")
+  ) {
     let colorObject = paletteArray[element.parentNode.dataset.miniColorId];
-    console.log(colorObject)
-    fromSavedPalette(colorObject)
+    fromSavedPalette(colorObject);
   }
 });
 
@@ -66,6 +68,7 @@ function updateColorBoxes() {
 function setBoxHex(index, colorObject) {
   if (index >= allColorContainers.length) return;
   if (currentPalette[index].isLocked) return;
+
   currentPalette[index] = colorObject;
   updateColorBoxes();
 }
@@ -76,16 +79,19 @@ function createColorBoxes() {
   }
 }
 
-function fromSavedPalette(colorObject){
+function fromSavedPalette(colorObject) {
   for (let i = 0; i < colorObject.length; i++) {
+    currentPalette[i].unlock();
     setBoxHex(i, colorObject[i]);
-    
   }
-  updateColorBoxes()
+  updateColorBoxes();
 }
 
 function savePalette() {
-  paletteArray.push(structuredClone(currentPalette));
+  let newCurrentPalette = currentPalette.map(
+    (color) => new Color(color.hexCode, color.isLocked)
+  );
+  paletteArray.push(newCurrentPalette);
 }
 
 function updateSavedPalettes() {
