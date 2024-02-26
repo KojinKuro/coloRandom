@@ -26,7 +26,6 @@ We are currently in Week 4 of Mod 1 Front-End Engineering. This is our second gr
 
 ## 🚀 Future Roadmap
 
-- Allowing sending saved palettes to the main page for editing.
 - Ensure that all saved palettes are unique.
 - Create a delete confirmation page.
 - Implement localStorage so the saved palettes persist on page load.
