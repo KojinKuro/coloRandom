@@ -26,6 +26,7 @@ export class Color {
   randomHexGenerator() {
     const possibleInt = "0123456789abcdef";
     let hexCode = "#";
+
     for (let index = 0; index < 6; index++) {
       let randInt = Math.floor(Math.random() * possibleInt.length);
       hexCode += possibleInt[randInt];
@@ -42,3 +43,7 @@ export let currentPalette = [
   new Color(),
 ];
 export let paletteArray = [];
+
+export const LOCKED_IMG_PATH = "./assets/locked.png";
+export const UNLOCKED_IMG_PATH = "./assets/unlocked.png";
+export const REMOVE_IMG_PATH = "./assets/delete.png";

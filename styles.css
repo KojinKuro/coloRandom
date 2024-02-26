@@ -1,23 +1,20 @@
 :root {
   --color-background: #e5f1f1;
 
-  --title-size: 5rem;
-  --other-font-size: 1.5rem;
-  --main-margin: 3ch;
+  --main-title-size: 5rem;
+  --saved-title-size: 2rem;
+  --text-font-size: 1.5rem;
 
   --box-size: 150px;
   --box-border: 5px solid black;
-
   --mini-box-size: 40px;
   --mini-box-border: 4px solid black;
+
+  --lock-img-size: 20%;
 
   --button-height: 50px;
   --button-width: 250px;
   --button-font-size: 1.5rem;
-
-  --lock-img-size: 20%;
-
-  --saved-title-size: 2rem;
 }
 
 html,
@@ -61,7 +58,7 @@ body {
 
     li {
       list-style-type: none;
-      font-size: var(--other-font-size);
+      font-size: var(--text-font-size);
       margin-bottom: 30px;
     }
 
@@ -107,7 +104,7 @@ body {
     text-align: center;
     justify-self: center;
 
-    font-size: var(--title-size);
+    font-size: var(--main-title-size);
     text-transform: uppercase;
   }
 
@@ -137,7 +134,7 @@ body {
     }
 
     .color-hex {
-      font-size: var(--other-font-size);
+      font-size: var(--text-font-size);
       text-transform: uppercase;
     }
 
