@@ -22,7 +22,25 @@ This is a web application that helps discover new color palettes. This project w
 
 ## 🌱 Context
 
-We are currently in Week 4 of Mod 1 Front-End Engineering. This is our second group project. In total we spent 9 hours working on this project together using paired programming.
+We are currently in Week 4 of a 24 week Front-End Engineering program. This is the second group project assigned to us. In total we spent 9 hours working on this project together using paired programming.
+
+## 🧠 Learning Goals
+
+- Practice working together with other developers to create  final product
+- Work on implementing HTML, CSS, and Javascript to match a project spec
+- Practicing proper git commit workflow
+
+## 🏆 Wins and Challenges
+
+### Wins
+
+- Keeping the code clean and DRY
+- Being able to work together with a team of other developers successfully
+
+### Challenges
+
+- Working with other team members with differing opinions on how to write code
+- Being able to refactor and work with other people's code
 
 ## 🚀 Future Roadmap
 
@@ -35,8 +53,6 @@ We are currently in Week 4 of Mod 1 Front-End Engineering. This is our second gr
 
 ## 👏 Credits
 
-[Charles Kwang](https://github.com/KojinKuro)
-
-[Ben Wehrend](https://github.com/BenWehrend)
-
-[Gwyneth Patrick](https://github.com/gwynethpatrick985)
+- [Charles Kwang](https://github.com/KojinKuro)
+- [Ben Wehrend](https://github.com/BenWehrend)
+- [Gwyneth Patrick](https://github.com/gwynethpatrick985)
